@@ -18,13 +18,18 @@ def main():
     if ans == 'archain' or ans == 'a' or ans == '1':
         print('Running Archian Calculation')
         sleep(.5)
+        inuit = Balian(False)
+        sleep(.9)
         print('Calibrating...')
         loadingScreen(19, .4)
-        inuit = Balian(False)
-        sleep(1.3)
-        print('Calibration Successful')
-        sleep(1.3)
-        Archain(inuit)
+        sleep(.9)
+        rand = randint(1, 20)
+        if rand > 2:
+            print('Calibration Successful')
+            sleep(1.3)
+            Archain(inuit)
+        else:
+            print('Calibration failed, please run again')
     elif ans == 'balian' or ans == 'b' or ans == '2':
         print('Running Balian Calculation')
         sleep(.5)
@@ -54,7 +59,7 @@ def Archain(inuit):
     #Linear integrity is in essence how much the base unit of time changes over a certain period of time
     #It is used to determine how accurate the falliability of a calculation is
     spc = get_float('What is the linear integrity of your timeline?: ')
-    loadingScreen(17, .3)
+    sleep(1)
     falliability = calc.calculate_falliability(calc, spc, clr_s)
     falliability *= uniform(.15, 1.2)
     notation_key = calc.tappaclan_runner(calc, falliability)
