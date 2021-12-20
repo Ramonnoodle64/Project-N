@@ -5,7 +5,7 @@ from cs50 import get_float
 UNIV = 12.298
 UNICON = 0.14
 
-def loadingScreen(length, time):
+def loadingBar(length, time):
     block = '\N{FULL BLOCK}'
     line = '\N{BOX DRAWINGS HEAVY VERTICAL}'
     percentage = 0

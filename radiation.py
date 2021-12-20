@@ -1,8 +1,10 @@
 from cs50 import get_float, get_string, get_int
 from time import sleep
 from random import randint, uniform
-from helpers import loadingScreen, factors, lookup
+from helpers import loadingBar, factors, lookup
 from helpers import Algometer, Geigometer
+from subprocess import call
+import donut
 
 UNIV = 12.298
 UNICON=0.14
@@ -12,16 +14,18 @@ def main():
     print('1- Archain')
     print('2- Balian')
     print('3- Lookup')
+    print('4- Donut')
     ans = get_string('Which of the previous sequences would you like to run?: ')
     ans.lower()
     ans.strip()
-    if ans == 'archain' or ans == 'a' or ans == '1':
+    sleep(.5)
+    if ans == 'archain' or ans == '1':
         print('Running Archian Calculation')
         sleep(.5)
         inuit = Balian(False)
         sleep(.9)
         print('Calibrating...')
-        loadingScreen(19, .4)
+        loadingBar(19, .4)
         sleep(.9)
         rand = randint(1, 20)
         if rand > 2:
@@ -30,11 +34,11 @@ def main():
             Archain(inuit)
         else:
             print('Calibration failed, please run again')
-    elif ans == 'balian' or ans == 'b' or ans == '2':
+    elif ans == 'balian' or ans == '2':
         print('Running Balian Calculation')
         sleep(.5)
         Balian(True)
-    elif ans == 'lookup' or ans == 'l' or ans == '3':
+    elif ans == 'lookup' or ans == '3':
         print('Running error lookup')
         sleep(.5)
         notation = get_string('Enter error notation as given: ')
@@ -42,8 +46,18 @@ def main():
         notation.strip()
         sleep(.5)
         print(lookup(notation))
+        sleep(.5)
+    elif ans == 'donut' or ans == '4':
+        ans2 = get_string('You are about to travel into another universe, do you agree?(Y/N): ')
+        ans2.lower()
+        ans2.strip()
+        if ans2 == 'y' or ans2 == 'yes':
+            get_string('Resize your termial to full-screen, hit enter when you are ready')
+            call(["python", "donut.py"])
+    elif ans == 'ls':
+        loadingBar(23, .4)
     else:
-        print('Answer is invalid')
+        print('Sequence invalid')
 
 def Archain(inuit):
     """
