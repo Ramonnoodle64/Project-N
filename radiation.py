@@ -4,7 +4,7 @@ from random import randint, uniform
 from helpers import loadingBar, factors, lookup
 from helpers import Algometer, Geigometer
 from subprocess import call
-import donut
+import imports.donut as donut
 
 UNIV = 12.298
 UNICON=0.14
@@ -14,7 +14,7 @@ def main():
     print('1- Archain')
     print('2- Balian')
     print('3- Lookup')
-    print('4- Donut')
+    print('4- Donut(Specialty)')
     ans = get_string('Which of the previous sequences would you like to run?: ')
     ans.lower()
     ans.strip()
@@ -53,8 +53,8 @@ def main():
         ans2.strip()
         if ans2 == 'y' or ans2 == 'yes':
             get_string('Resize your termial to full-screen, hit enter when you are ready')
-            call(["python", "donut.py"])
-    elif ans == 'ls':
+            call(["python", "imports/donut.py"])
+    elif ans == 'lb':
         loadingBar(23, .4)
     else:
         print('Sequence invalid')
