@@ -1,2 +1,2 @@
 # Project-N
-A progam to calculate functions of the Corrino Quantum Theory
+A progam to calculate functions of the Corrino Quantum Theory, among other things....
